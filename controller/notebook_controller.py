@@ -7,7 +7,7 @@ import json
 
 @app.route("/notebook/<notebook_id>", methods=["GET"])
 def view__single_notebook(notebook_id):
-    notebook = db.session.query(Note).filter(Note.notebook_id == notebook_id).first()
+    notebook = db.session.query(Note).filter(Note.notebook_id == notebook_id).all()
     notebook_title = db.session.query(Notebook).filter(Notebook.id == notebook_id).first()
     return render_template("notebook.html", title=notebook_title.title, notebook = notebook, current_notebook = notebook_title)
 
