@@ -19,3 +19,8 @@ def add_notebook():
     db.session.add(notebook)
     db.session.commit()
     return redirect( url_for ( "get_notebooks" ) ) 
+
+@app.route("/notebook", methods=["GET"])
+def get_notebooks():
+    notebooks = db.session.query(Notebook).all()
+    return render_template("notebooks.html", title="Notebooks", notebooks=notebooks)
