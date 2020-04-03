@@ -4,7 +4,7 @@
 <h3>Add Note:</h3>
 
 <form method="POST" action = {{ url_for ( "add_note" ) }}>
-    <input type="text" name= {{ current_notebook.id }} readonly/>
+    <input type="text" value= {{ current_notebook.id }} readonly/>
     <input type="text" name="text"/>
     <input type="submit"/>
 </form>
